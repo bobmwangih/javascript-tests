@@ -298,3 +298,112 @@ console.log(/i/.exec(strng));
 var chck=/\d/g;
 var result=strng.match(chck);
 console.log(String(result));
+
+//hoisting
+//default behavior of moving all declarations to the top of the current scope
+
+//variables declared using const and let are not hoisted!!! only those declared with var
+//declarations though,not initializations e.g var x; not var x=5;
+//if using strict mode ,hoisting isnt allowed. it prevents using undeclared variables
+
+ //performance
+
+ //var i;
+//for (i = 0; i < arr.length; i++) { --->bad code,,executes get arr.length everytime its looping
+
+//var i;
+//var l = arr.length;
+//or (i = 0; i < l; i++) {  --->better code
+
+var example={firstName:"bob",
+            secondName:"mwangi",
+            /* fullname:function(){
+                return this.firstName + " "+this.secondName;
+            } ///this is a a method */
+            //setter
+            get fullname(){
+                return this.firstName+" "+this.secondName;
+            }
+        };
+        console.log(example.fullname);
+
+///using the object constructor function
+
+function Person(a,b,c,d){
+    this.jinaKwanza=a;
+    this.jinaPili=b;
+    this.age=c;
+    this.personality=d;
+    this.whoIsThis=()=>(this.jinaKwanza+" "+this.jinaPili+" "+this.age+" "+this.personality);
+}
+var myMan =new Person("hewlett","packard","77","smart");
+console.log(myMan.whoIsThis());
+
+function Car(name,year,origin){
+    this.carName=name;
+    this.yom=year;
+    this.country=origin;
+}
+
+var volvo= new Car("volv0 v6",2017,"U.K");
+var benz=new Car("mercedez amg 4matic",2018,"germany");
+var renault=new Car("renault v6",2016,"france");
+Car.prototype.cylinderCapacity=5700; /////////--------->inheritance,adds to all child classes
+Car.prototype.magari=function(){return this.carName+" "+this.yom+" "+this.country+" "+this.cylinderCapacity;}
+//Car.prototype.magari=()=>(return this.carName+" "+this.yom+" "+this.country+" "+this.cylinderCapacity); 
+//------>note the arrow notation doesnt support usage of this
+console.log(benz.magari());
+console.log(Object.getOwnPropertyNames(renault));
+
+//with call(), an object can use a method belonging to another object
+
+var join={
+    specs:function(a,b){
+        return this.make+" "+this.cc+" "+a+" "+b
+    }
+}
+var bugatti={
+    cc:6000,
+    make:2018
+}
+var ferrari={
+    cc:6200,
+    make:2015
+}
+
+//console.log(join.specs.call(ferrari,"super","fast"));   //----->calls another object using the call()
+console.log(join.specs.apply(bugatti,["is super","fast"])); //-->difference with call is apply takes an array as arguments
+
+//in math.max.apply(null,[array]) ------>to find the max number in an array.
+
+
+
+var array_names = ['parto','cyrus','dickens', 'lilian', 'phyliss','bob', 'george'];
+function checker(jina){
+    var x=array_names.indexOf(jina.toLowerCase()); //returns -1 if the item isn't in the array
+    if (x>0){  
+        console.log(`Wolaa! Your name : ${jina} exists in position ${x}`);
+    }else{
+        console.log(`The name :${jina} doesnt exist in the array. `);
+    }
+}
+checker("Bob");
+
+
+
+//checks the existence of a name in an array containing names and returns it position index:
+var array_names = ['parto','cyrus','dickens', 'lilian', 'phyliss','bob', 'george'];
+var array1 = [];
+function check_array(items, value){
+  if (items.includes(value)) {
+    for (var i = 0; i < items.length; i++) {
+      if (items[i] === items[items.indexOf(value)]) {
+        console.log(`'The name '${value}' exist: and is indexed at position ${i} in the array'`);
+      }
+    }
+  }
+  else if (!items.includes(value)) {
+    console.log(`'the name '${value}' doesn't exist: Please search for another name in the Array'`);
+  }
+}
+check_array(array_names,'cyrus');
