@@ -379,15 +379,15 @@ console.log(join.specs.apply(bugatti,["is super","fast"])); //-->difference with
 
 
 var array_names = ['parto','cyrus','dickens', 'lilian', 'phyliss','bob', 'george'];
-function checker(jina){
-    var x=array_names.indexOf(jina.toLowerCase()); //returns -1 if the item isn't in the array
+function checker(whichArray,jina){
+    var x=whichArray.indexOf(jina.toLowerCase());
     if (x>0){  
-        console.log(`Wolaa! Your name : ${jina} exists in position ${x}`);
+        console.log(`Wolaa! Your name : ${jina} exists in position ${x} `);
     }else{
         console.log(`The name :${jina} doesnt exist in the array. `);
     }
 }
-checker("Bob");
+checker(array_names,"Bob");
 
 
 
