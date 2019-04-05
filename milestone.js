@@ -379,6 +379,14 @@ console.log(join.specs.apply(bugatti,["is super","fast"])); //-->difference with
 
 
 var array_names = ['parto','cyrus','dickens', 'lilian', 'phyliss','bob', 'george'];
+let iterator=array_names[Symbol.iterator](); /////////iterator shit
+/*console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next()); */
+for (const elem of iterator){
+    console.log(elem);
+}
+
 function checker(whichArray,jina){
     var x=whichArray.indexOf(jina.toLowerCase());
     if (x>0){  
@@ -393,7 +401,6 @@ checker(array_names,"Bob");
 
 //checks the existence of a name in an array containing names and returns it position index:
 var array_names = ['parto','cyrus','dickens', 'lilian', 'phyliss','bob', 'george'];
-var array1 = [];
 function check_array(items, value){
   if (items.includes(value)) {
     for (var i = 0; i < items.length; i++) {
@@ -407,3 +414,11 @@ function check_array(items, value){
   }
 }
 check_array(array_names,'cyrus');
+
+
+
+///////////for of
+let array1=new Set(['tom','dick','dick','harry']);
+for(let val of array1){
+    console.log(val);
+}
