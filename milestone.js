@@ -334,8 +334,12 @@ function Person(a,b,c,d){
     this.jinaPili=b;
     this.age=c;
     this.personality=d;
-    this.whoIsThis=()=>(this.jinaKwanza+" "+this.jinaPili+" "+this.age+" "+this.personality);
+    //this.whoIsThis=()=>(this.jinaKwanza+" "+this.jinaPili+" "+this.age+" "+this.personality);
 }
+Person.prototype.whoIsThis=function(){
+    return (this.jinaKwanza+" "+this.jinaPili+" "+this.age+" "+this.personality); ///prototype.store only in the constructor,the new objects checks it but dont inherit it!
+
+} 
 var myMan =new Person("hewlett","packard","77","smart");
 console.log(myMan.whoIsThis());
 
