@@ -1,2 +1,8 @@
-let str='kabambe';
-console.log(str.padStart((str.length)+2,'gi'));
+function myFactorial(n){
+    var total="";
+    for(i=1;i<=n;i++){
+         var x= n*(n-1);
+        total+=x;
+    }
+}
+myFactorial(4);

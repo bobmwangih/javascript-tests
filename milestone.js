@@ -426,3 +426,5 @@ let array1=new Set(['tom','dick','dick','harry']);
 for(let val of array1){
     console.log(val);
 }
+
+
