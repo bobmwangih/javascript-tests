@@ -1,8 +1,10 @@
-function myFactorial(n){
-    var total="";
-    for(i=1;i<=n;i++){
-         var x= n*(n-1);
-        total+=x;
+
+     function getCount(str){
+        vowelsCount = 0;
+        var m = str.match(/[aeiou]/gi);
+     m === null ? vowelsCount: m.length; 
+    
+    
+        return vowelsCount;
     }
-}
-myFactorial(4);
+    console.log(getCount("gygyyaeeovdyv"));

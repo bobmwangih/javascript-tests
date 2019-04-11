@@ -7,7 +7,7 @@ console.log('person 2:ndo hii ticket');
 console.log('person 3:ndo hii ticket');
 const preMovie=async()=>{
     const mamaAnaletaTicket=new Promise((resolve,reject)=>{
-        setTimeout(()=> reject('ticket'),3000);
+        setTimeout(()=> resolve('ticket'),3000);
     });
     const popCorns=new Promise((resolve,reject)=>{resolve('popcorns')});
     const candy=new Promise((resolve,reject)=>{resolve('cande')});
