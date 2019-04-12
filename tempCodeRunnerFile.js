@@ -1,10 +1,4 @@
-
-     function getCount(str){
-        vowelsCount = 0;
-        var m = str.match(/[aeiou]/gi);
-     m === null ? vowelsCount: m.length; 
-    
-    
-        return vowelsCount;
-    }
-    console.log(getCount("gygyyaeeovdyv"));
+   function valider(pin){
+            return /^(\d{4}|\d{6})$/g.test(pin);
+        }
+        console.log(valider(4423));
